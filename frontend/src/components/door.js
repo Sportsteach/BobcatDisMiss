@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table, Alert } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 import Student from './Student'
 
 

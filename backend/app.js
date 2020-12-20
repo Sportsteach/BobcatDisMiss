@@ -25,7 +25,7 @@ app.use(cors());
 app.use(express.json());
 
 const dbURI = db
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }
+mongoose.connect(process.env.MONGODB_URI || dbURI, { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -46,6 +46,10 @@ app.get('/', (req, res) => {
 app.use((req, res) => {
     res.status(404).send('<h1>404 Page does not exist</h1>')
 })
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static('../frontend/build'));
+}
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
