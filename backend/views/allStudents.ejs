@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <h1>All Students</h1>
+            <h2>Dis-Missle: You will be home in a Whistle!</h2>
+        </div>
+        <ul>
+            <li> <a href="/">Homepage</a></li>
+            <li><a href="/allstudents">All Student page</a></li>
+            <li><a href="/allstudents/new">Add Student</a></li>
+            <li><a href="/mainlist">Main List</a></li>
+            <li><a href="/projector">Projector</a></li>
+            <li><a href="/door">Door</a></li>
+        </ul>
+        <div>
+            <button>
+                <a href="/allstudents/delete">Empty All Lists</a>
+            </button>
+        </div>
+    </nav>
+    <div>
+        <h2>Students</h2>
+        <% if (students.length> 0) { %>
+            <% students.forEach(student=> { %>
+                <a href="allstudents/edit/<%=student.id%>">
+                    <h3 class="title">
+                        <%= student.firstName %>
+                    </h3>
+                </a>
+                <p class="snippet">
+                    <%= student.lastName %>
+                </p>
+                <p class="snippet">
+                    <%= student.carNumber %>
+                </p>
+                <p class="snippet">
+                    <%= student.teacher %>
+                </p>
+                <p class="snippet">
+                    <%= student.siblings %>
+                </p>
+                <% }) %>
+                    <% } else { %>
+                        <p>There are no students to display...</p>
+                        <% } %>
+    </div>
+
+</body>
+
+</html>

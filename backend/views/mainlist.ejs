@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main List</title>
+</head>
+
+<body>
+    <ul>
+        <li> <a href="/">Homepage</a></li>
+        <li><a href="/allstudents">Student page</a></li>
+        <li><a href="/allstudents/new">Add Student</a></li>
+        <li><a href="/mainlist">Main List</a></li>
+        <li><a href="/projector">Projector</a></li>
+        <li><a href="/door">Door</a></li>
+    </ul>
+    <form id="main-form" action="/mainlist/:" method="GET">
+        <div>
+            <input type="text" name="search" placeholder="Car Number Here">
+            <input type="submit" value="Add Car">
+        </div>
+    </form>
+
+    <div>
+        <h2>Main List</h2>
+        <% if (mainlist) { %>
+            <% mainlist.forEach(student=> { %>
+
+                <div id="<%= student.id %>">
+                    <h4 class="title">
+                        <%= student.firstName %>
+                    </h4>
+                    <small>
+                        <%= student.lastName %>
+                            <%= student.carNumber %>
+                                <%= student.teacher %>
+                                    <%= student.siblings %>
+                    </small>
+                    <form method="POST" action="/mainlist/<%= student.carNumber%>?_method=DELETE">
+                        <button type=" submit">Delete</button>
+                    </form>
+
+
+
+                    <% }) %>
+                        <% } else { %>
+                            <p>There are no students to display...</p>
+                            <% } %>
+                </div>
+
+
+</body>
+
+</html>
