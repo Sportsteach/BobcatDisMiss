@@ -3,16 +3,15 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const db = require('./db');
-const methodOverride = require('method-override')
-
+const methodOverride = require('method-override');
+const path = require('path');
+require('dotenv').config();
 
 //routes
 const students = require('./routes/allStudents')
 const mainlist = require('./routes/mainlist')
 const door = require('./routes/door')
 const projector = require('./routes/projector')
-
-require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,7 +23,7 @@ app.use(methodOverride('_method'))
 app.use(cors());
 app.use(express.json());
 
-const dbURI = db
+// const dbURI = db
 mongoose.connect(process.env.MONGODB_URI || dbURI, { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
@@ -49,6 +48,9 @@ app.use((req, res) => {
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static('../frontend/build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../frontend', 'build', 'index.html'));
+    })
 }
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
