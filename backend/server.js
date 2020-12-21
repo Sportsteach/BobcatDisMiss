@@ -23,7 +23,7 @@ app.use(methodOverride('_method'))
 app.use(cors());
 app.use(express.json());
 
-// const dbURI = db
+const dbURI = db
 mongoose.connect(process.env.MONGODB_URI || dbURI, { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;

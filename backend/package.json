@@ -19,7 +19,7 @@
     "build": "cd ../frontend/build && npm run build",
     "install-client": "cd ../frontend/build && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node app.js",
+    "start": "node server.js",
     "client": "cd ../frontend/build && npm start"
   },
   "author": "",
