@@ -13,7 +13,7 @@ export default class Door extends Component {
 
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/door')
+        axios.get('https://dismissle.herokuapp.com/door')
             .then(res => {
                 this.setState({ students: res.data })
             })
@@ -26,7 +26,7 @@ export default class Door extends Component {
     }
 
     deleteStudent(id) {
-        axios.delete('http://localhost:5000/door/' + id)
+        axios.delete('https://dismissle.herokuapp.com/door/' + id)
             .then(response => { console.log(response.data) });
 
         this.setState({

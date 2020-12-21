@@ -22,7 +22,7 @@ export default class EditStudent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/allstudents/' + this.props.match.params.id)
+        axios.get('https://dismissle.herokuapp.com/allstudents/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     firstName: response.data.firstName,
@@ -73,7 +73,7 @@ export default class EditStudent extends Component {
 
         console.log(student);
 
-        axios.post('http://localhost:5000/allstudents/edit/' + this.props.match.params.id, student)
+        axios.post('https://dismissle.herokuapp.com/allstudents/edit/' + this.props.match.params.id, student)
             .then(res => console.log(res.data));
 
         window.location = '/allstudents';

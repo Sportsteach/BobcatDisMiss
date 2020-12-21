@@ -18,7 +18,7 @@ export default class Mainlist extends Component {
 
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/mainlist')
+        axios.get('https://dismissle.herokuapp.com/mainlist')
             .then(res => {
                 this.setState({ students: res.data })
             })
@@ -33,7 +33,7 @@ export default class Mainlist extends Component {
         });
     }
     deleteStudent(id) {
-        axios.delete('http://localhost:5000/mainlist/' + id)
+        axios.delete('https://dismissle.herokuapp.com/mainlist/' + id)
             .then(response => { console.log(response.data) });
 
         this.setState({
@@ -42,7 +42,7 @@ export default class Mainlist extends Component {
         window.location = '/mainlist';
     }
     emptyAllLists() {
-        axios.delete('http://localhost:5000/allstudents/delete')
+        axios.delete('https://dismissle.herokuapp.com/allstudents/delete')
             .then(response => { console.log(response.data) });
         window.location = '/mainlist';
     }
@@ -51,7 +51,7 @@ export default class Mainlist extends Component {
         const car = {
             carNumber: this.state.carNumber
         }
-        axios.get(`http://localhost:5000/mainlist/${car.carNumber}`)
+        axios.get(`https://dismissle.herokuapp.com/mainlist/${car.carNumber}`)
             .then(res => console.log(res.data));
         this.setState({
             carNumber: ''

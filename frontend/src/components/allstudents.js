@@ -13,7 +13,7 @@ export default class AllStudents extends Component {
 
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/allstudents')
+        axios.get('https://dismissle.herokuapp.com/allstudents')
             .then(res => {
                 this.setState({ students: res.data })
             })
@@ -23,7 +23,7 @@ export default class AllStudents extends Component {
     }
 
     deleteStudent(id) {
-        axios.delete('http://localhost:5000/allstudents/' + id)
+        axios.delete('https://dismissle.herokuapp.com/allstudents/' + id)
             .then(response => { console.log(response.data) });
 
         this.setState({

@@ -15,12 +15,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd ../frontend/build && npm run build",
-    "install-client": "cd ../frontend/build && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
-    "start": "node server.js",
-    "client": "cd ../frontend/build && npm start"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"

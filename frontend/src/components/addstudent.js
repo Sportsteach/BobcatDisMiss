@@ -46,7 +46,7 @@ export default class AddStudent extends Component {
             teacher: this.state.teacher,
             siblings: this.state.siblings
         }
-        axios.post('http://localhost:5000/allstudents', student)
+        axios.post('https://dismissle.herokuapp.com/allstudents', student)
             .then(res => console.log(window.location = `yournumber/${res.data._id}`));
         this.setState({
             firstName: '',

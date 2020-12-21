@@ -14,7 +14,7 @@ export default class YourNumber extends Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/allstudents/yournumber/' + this.props.match.params.id)
+        axios.get('https://dismissle.herokuapp.com/allstudents/yournumber/' + this.props.match.params.id)
             .then(response => {
                 this.setState({
                     carNumber: response.data.carNumber,
